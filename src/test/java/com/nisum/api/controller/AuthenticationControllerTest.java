@@ -7,6 +7,7 @@ import com.nisum.api.restful.domain.SignInRequest;
 import com.nisum.api.restful.domain.UserRequest;
 import com.nisum.api.restful.domain.UserResponse;
 import com.nisum.api.restful.service.AuthenticationService;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -39,13 +40,16 @@ public class AuthenticationControllerTest {
         userRequest = new UserRequest();
         signinRequest = new SignInRequest();
         userResponse = new UserResponse();
+        ReflectionTestUtils.setField(authenticationController,
+                "regularExpression",
+                "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$");
     }
 
+    @SneakyThrows
     @Test
     void testSignup() {
         userResponse.setToken("adlksjdlaj");
         userRequest.setEmail("prueba@gmail.com");
-        ReflectionTestUtils.setField(authenticationController, "regularExpression", "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$");
         when(authenticationService.signup(any(UserRequest.class))).thenReturn(userResponse);
 
         ResponseEntity<Object> responseEntity = authenticationController.signup(userRequest);
@@ -54,12 +58,11 @@ public class AuthenticationControllerTest {
         assertEquals(userResponse, responseEntity.getBody());
     }
 
+    @SneakyThrows
     @Test
     void testSignupNotAcceptable() {
         userResponse.setToken(null);
         userRequest.setEmail("prueba@gmail.com");
-        ReflectionTestUtils.setField(authenticationController, "regularExpression", "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$");
-
         when(authenticationService.signup(any(UserRequest.class))).thenReturn(userResponse);
 
         ResponseEntity<Object> responseEntity = authenticationController.signup(userRequest);

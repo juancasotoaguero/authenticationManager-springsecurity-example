@@ -41,11 +41,9 @@ DELETE:/api/v1/user/{id} = Eliminar un usuario
 Dentro del proyecto se encuentra un archivo con los endpoints importados con postman , debes exportarlos:
 ![image](https://github.com/user-attachments/assets/256a17bb-6e61-4c6a-8a75-7e29647229a5)
 
-Tienes los endpoints ordenados
-![image](https://github.com/user-attachments/assets/f92fdb69-446b-4d70-a985-649d028f79b6)
+Tienes los endpoints ordenados, los dos primeros endpoints son para Crear el usuario e iniciar sesion (signup y singin)
+![image](https://github.com/user-attachments/assets/33fa0e6a-73c6-4a6b-8f36-0242364c5341)
 
-Los dos primeros endpoints son para Crear el usuario e iniciar sesion (signup y singin)
-![image](https://github.com/user-attachments/assets/a939262d-7d6f-422d-81f0-1da74e5cf811)
 
 Los demás endpoints, necesitan autenticación, debes usar el token que devuelve en el endpoint de signup o singin e insertarlos en la sección de authentication del postman.
 * Aqui se ve el response del singup y singin

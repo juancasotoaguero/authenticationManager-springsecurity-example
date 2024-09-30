@@ -51,7 +51,7 @@ Los demás endpoints, necesitan autenticación, debes usar el token que devuelve
 
 * ![image](https://github.com/user-attachments/assets/39a4c8fe-4302-43e0-9a64-36cf031377fc)
 
-Copiar el valor del token en cualquiera en esta sección
+Copiar el valor del token en esta sección
 ![image](https://github.com/user-attachments/assets/f79a7a36-cc60-41fb-936d-7e89828022d2)
 
 

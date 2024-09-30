@@ -196,7 +196,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/user/{id} Copy",
+			"name": "/api/v1/user/{id}",
 			"request": {
 				"auth": {
 					"type": "bearer",

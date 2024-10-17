@@ -1,4 +1,4 @@
-# Proyecto : nissum prueba tecnica
+# Proyecto :
 
 Es una aplicación hecha en java con spring boot que sigue los requisitos mandados por nisum
 
